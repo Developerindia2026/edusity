@@ -4,8 +4,8 @@
   "description": "EDUSITY Backend Server",
   "main": "contact.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node contact.js",
+    "dev": "nodemon contact.js"
   },
   "keywords": [],
   "author": "",
