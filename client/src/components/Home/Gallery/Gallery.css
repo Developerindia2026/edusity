@@ -1,0 +1,189 @@
+.gallery {
+    width: 90%;
+    margin: 80px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* ========================= */
+/* IMAGES CONTAINER */
+/* ========================= */
+
+.gallery .MuiGrid-root {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* ========================= */
+/* IMAGES */
+/* ========================= */
+
+.gallery .MuiGrid-root img {
+    width: 23%;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+/* ========================= */
+/* HOVER EFFECT */
+/* ========================= */
+
+.gallery img:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.2);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.gallery-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 50px;
+    padding: 14px 30px;
+
+    background: #212EA0;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(33, 46, 160, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.gallery-btn img {
+    width: 16px;
+    height: auto;
+
+    transition: transform 0.3s ease;
+}
+
+.gallery-btn:hover {
+    background: #1b2580;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(33, 46, 160, 0.35);
+}
+
+.gallery-btn:hover img {
+    transform: translateX(5px);
+}
+
+.gallery-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 992px) {
+
+    .gallery {
+        width: 95%;
+    }
+
+    .gallery .MuiGrid-root {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery .MuiGrid-root img {
+        width: 45%;
+    }
+
+    .gallery-btn {
+        margin-top: 40px;
+    }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .gallery {
+        width: 95%;
+        margin: 60px auto;
+    }
+
+    .gallery .MuiGrid-root {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .gallery .MuiGrid-root img {
+        width: 47%;
+    }
+
+    .gallery-btn {
+        margin-top: 30px;
+        padding: 12px 24px;
+
+        font-size: 15px;
+    }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+    .gallery {
+        width: 92%;
+        margin: 50px auto;
+    }
+
+    .gallery .MuiGrid-root {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery .MuiGrid-root img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .gallery-btn {
+        width: 100%;
+        max-width: 250px;
+
+        justify-content: center;
+
+        font-size: 14px;
+    }
+
+    .gallery-btn img {
+        width: 14px;
+    }
+}

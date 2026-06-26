@@ -1,0 +1,148 @@
+.about {
+    width: 85%;
+    margin: 100px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+.about-left {
+    flex: 1;
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.about-right {
+    flex: 1;
+}
+
+.about-subtitle {
+    color: #212ea0;
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.about-right h2 {
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #000f38;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+}
+
+.about-right p {
+    color: #676767;
+
+    font-size: 18px;
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+/* Video Modal */
+
+.video-container {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.video-modal {
+    width: 90%;
+    max-width: 900px;
+}
+
+.video-modal video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+    .about {
+        gap: 40px;
+    }
+
+    .about-right h2 {
+        font-size: 38px;
+    }
+
+    .about-right p {
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .about {
+        width: 92%;
+        margin: 70px auto;
+
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .about-right {
+        text-align: center;
+    }
+
+    .about-right h2 {
+        font-size: 30px;
+    }
+
+    .about-subtitle {
+        font-size: 16px;
+    }
+
+    .about-right p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+    .about-right h2 {
+        font-size: 26px;
+    }
+
+    .play-icon {
+        transform:
+            translate(-50%, -50%) scale(0.8);
+    }
+}
