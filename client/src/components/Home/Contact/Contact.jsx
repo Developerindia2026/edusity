@@ -6,7 +6,7 @@ import axios from "axios";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 
-import { API_URL } from "../../../config/api";
+import { API_URL } from "../../../Config/api";
 
 import messageIcon from "../../../assets/msg-icon.png";
 import mailIcon from "../../../assets/mail-icon.png";
