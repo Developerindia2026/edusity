@@ -85,9 +85,9 @@ function Navbar() {
 
         <ul>
           <li>
-            <a href="#hero" onClick={() => setMenuOpen(false)}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
               Home
-            </a>
+            </Link>
           </li>
 
           <li>
@@ -97,15 +97,15 @@ function Navbar() {
           </li>
 
           <li>
-            <a href="#about" onClick={() => setMenuOpen(false)}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
               About Us
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#campus" onClick={() => setMenuOpen(false)}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
               Campus
-            </a>
+            </Link>
           </li>
 
           <li>
