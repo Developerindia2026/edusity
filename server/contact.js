@@ -1,53 +1,56 @@
-require('dotenv').config();
+require("dotenv").config();
+
 const express = require("express");
-const path = require("path");
 const cors = require("cors");
+
 const brevo = require("@getbrevo/brevo");
 
-let app = express();
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// brevo routing 
+// ==================== BREVO SETUP ====================
+
 const apiInstance = new brevo.TransactionalEmailsApi();
 
 apiInstance.setApiKey(
-    brevo.TransactionalEmailsApiApiKeys.apiKey,
-    process.env.BREVO_API_KEY
+  brevo.TransactionalEmailsApiApiKeys.apiKey,
+  process.env.BREVO_API_KEY
 );
 
-// middleware 
+// ==================== MIDDLEWARE ====================
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-
+// ==================== TEST ROUTE ====================
 
 app.get("/", (req, res) => {
-    res.send("backend is working properly");
+  res.send("Backend is working properly 🚀");
+});
 
-})
+// ==================== CONTACT ROUTE ====================
 
-// form-handle post 
 app.post("/contact", async (req, res) => {
-    try {
-        const { name, email, phone, message } = req.body;
+  try {
+    const { name, email, phone, message } = req.body;
 
-        const sendSmtpEmail = {
-            sender: {
-                name: "EDUSITY Contact Form",
-                email: process.env.SENDER_EMAIL,
-            },
+    const emailData = {
+      sender: {
+        name: "EDUSITY Contact Form",
+        email: process.env.SENDER_EMAIL,
+      },
 
-            to: [
-                {
-                    email: process.env.SENDER_EMAIL,
-                    name: "Deepanshu",
-                },
-            ],
+      to: [
+        {
+          email: process.env.SENDER_EMAIL,
+          name: "Deepanshu",
+        },
+      ],
 
-            subject: "📩 New Contact Form Submission",
+      subject: "📩 New Contact Form Submission",
 
-            htmlContent: `
+      htmlContent: `
         <h2>New Contact Form Message</h2>
 
         <p><strong>Name:</strong> ${name}</p>
@@ -60,27 +63,26 @@ app.post("/contact", async (req, res) => {
 
         <p>${message}</p>
       `,
-        };
+    };
 
-        await apiInstance.sendTransacEmail(sendSmtpEmail);
+    await apiInstance.sendTransacEmail(emailData);
 
-        res.status(200).json({
-            success: true,
-            message: "Email sent successfully",
-        });
+    res.status(200).json({
+      success: true,
+      message: "Email sent successfully",
+    });
+  } catch (error) {
+    console.log(error);
 
-    } catch (error) {
-        console.log(error);
-
-        res.status(500).json({
-            success: false,
-            message: "Something went wrong while sending email",
-            error: error.message,
-        });
-    }
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 });
 
-// PORTS 
+// ==================== SERVER ====================
+
 app.listen(PORT, () => {
-    console.log(`backend running on the server port ${PORT}`)
+  console.log(`Backend running on port ${PORT}`);
 });
