@@ -8,7 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 function Navbar() {
   const location = useLocation();
 
-  const isUnderDevelopment = location.pathname === "/UnderDevelopment";
+  const isUnderDevelopment = location.pathname === "/UnderDevelopment" || "/Career";
 
   const [navDark, setNavDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,7 +53,7 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to="/UnderDevelopment">Campus</Link>
+              <Link to="/Career">Career</Link>
             </li>
 
             <li>
@@ -103,8 +103,8 @@ function Navbar() {
           </li>
 
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
-              Campus
+            <Link to="/Career" onClick={() => setMenuOpen(false)}>
+              Career
             </Link>
           </li>
 
