@@ -1,0 +1,95 @@
+.admin-data-container {
+    width: 95%;
+    max-width: 1500px;
+    margin: 120px auto 60px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.admin-header h1 {
+    color: #212EA0;
+    font-size: 2rem;
+}
+
+.admin-header p {
+    color: #666;
+    font-weight: 600;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.application-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+}
+
+.application-table thead {
+    background: #212EA0;
+    color: white;
+}
+
+.application-table th,
+.application-table td {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.application-table tbody tr {
+    border-bottom: 1px solid #e5e5e5;
+    transition: 0.3s;
+}
+
+.application-table tbody tr:hover {
+    background: #f8f9ff;
+}
+
+.application-table td {
+    color: #444;
+}
+
+.resume-btn {
+    background: #212EA0;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.resume-btn:hover {
+    transform: translateY(-2px);
+    background: #11185c;
+}
+
+
+.delete-btn{
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.delete-btn:hover{
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

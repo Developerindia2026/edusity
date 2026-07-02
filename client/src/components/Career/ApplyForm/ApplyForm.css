@@ -243,3 +243,17 @@
         margin-right: 10px;
     }
 }
+
+/* aniamtion icons  */
+.status-animation{
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px){
+    .status-animation{
+        width: 200px;
+        height: 200px;
+    }
+}

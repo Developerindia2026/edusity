@@ -1,11 +1,6 @@
-require("dotenv").config();
-
 const express = require("express");
-const cors = require("cors");
 const { BrevoClient } = require("@getbrevo/brevo");
-
-const app = express();
-const PORT = process.env.PORT || 3000;
+const router = express.Router();
 
 // ======================
 // BREVO CONFIG
@@ -16,26 +11,10 @@ const brevo = new BrevoClient({
 });
 
 // ======================
-// MIDDLEWARE
-// ======================
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-
-// ======================
-// TEST ROUTE
-// ======================
-
-app.get("/", (req, res) => {
-  res.send("Backend is working properly 🚀");
-});
-
-// ======================
 // CONTACT ROUTE
 // ======================
 
-app.post("/contact", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
@@ -85,10 +64,4 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-// ======================
-// START SERVER
-// ======================
-
-app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`);
-});
+module.exports = router;

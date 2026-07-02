@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Career from "../pages/CareerPage/Career";
 import HomePage from "../pages/HomePage/HomePage";
 import UnderDevelopment from "../pages/UnderDevelopment/UnderDevelopment";
+import AdminPanel from "../pages/AdminPanel/AdminPanel";
 
 function AppRoutes() {
   return (
@@ -10,7 +11,9 @@ function AppRoutes() {
 
       <Route path="/UnderDevelopment" element={<UnderDevelopment />} />
 
-      <Route path="/Career" element={<Career />} />
+      <Route path="/career" element={<Career />} />
+
+      <Route path="career/admin/dashboard" element={<AdminPanel />} />
     </Routes>
   );
 }
