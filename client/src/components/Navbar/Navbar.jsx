@@ -118,13 +118,13 @@ function Navbar() {
           </li>
         </ul>
 
-        <a
-          href="#contact"
+        <Link
+          to="/career/admin/dashboard"
           className="mobile-contact-btn"
           onClick={() => setMenuOpen(false)}
         >
-          Contact Us
-        </a>
+          Admin Panel
+        </Link>
       </div>
     </>
   );
