@@ -3,7 +3,6 @@ import "./App.css";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-
 import AppRoutes from "./routes/AppRoutes";
 
 import AOS from "aos";

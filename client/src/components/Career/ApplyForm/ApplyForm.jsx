@@ -15,6 +15,8 @@ function ApplyForm({ SelectedJob, CloseApply }) {
 
   let [SubmitStatus, setSubmitStatus] = useState(null);
 
+  let [Loading, SetLoading] = useState(false);
+
   let [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,6 +40,8 @@ function ApplyForm({ SelectedJob, CloseApply }) {
   let HandleSubmit = async (event) => {
     event.preventDefault();
 
+    SetLoading(true);
+
     try {
       const Data = new FormData();
 
@@ -55,6 +59,7 @@ function ApplyForm({ SelectedJob, CloseApply }) {
         `${API_URL}/career/apply`,
         Data,
       );
+
 
       setSubmitStatus("success");
 
@@ -83,6 +88,8 @@ function ApplyForm({ SelectedJob, CloseApply }) {
         CloseApply();
       },4000 );
 
+    } finally {
+      SetLoading(false);
     }
   };
 
@@ -162,7 +169,9 @@ function ApplyForm({ SelectedJob, CloseApply }) {
                 onChange={(e) => setResume(e.target.files[0])}
               />
 
-              <button type="submit">SUBMIT</button>
+              <button type="submit" disabled={Loading}>
+                {Loading? "Submitting": "Submit"}
+              </button>
             </form>
           </div>
         ) : (
