@@ -6,7 +6,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar() {
-  const location = useLocation();
+ const location = useLocation();
+
 
   const isUnderDevelopment =
   location.pathname === "/UnderDevelopment" ||

@@ -11,6 +11,8 @@ import "aos/dist/aos.css";
 function App() {
   const location = useLocation();
 
+  const hideLocation = location.pathname.startsWith("/admin/login");
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -22,9 +24,9 @@ function App() {
 
   return (
     <>
-      {<Navbar />}
+      {!hideLocation && <Navbar />}
       <AppRoutes />
-      {<footer />}
+      {!hideLocation && <footer />}
     </>
   );
 }

@@ -24,7 +24,7 @@ function AppRoutes() {
         }
       />
 
-      <Route path="/admin/login" element="<LoginAdmin/>" />
+      <Route path="/admin/login" element={<LoginAdmin/>}/>
     </Routes>
   );
 }
