@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+.login-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    background:#f8fafc;
+}
+
+/* Sidebar */
+
+.login-sidebar{
+    flex:1.2;
+    background:linear-gradient(
+        135deg,
+        #212ea0 0%,
+        #0f154d 100%
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.login-sidebar::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    top:-80px;
+    left:-80px;
+}
+
+.sidebar-content{
+    max-width:450px;
+    z-index:2;
+}
+
+.brand-logo{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.sidebar-tagline{
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#e2e8f0;
+}
+
+/* Form */
+
+.login-form-wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.login-card{
+    width:100%;
+    max-width:430px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+}
+
+.login-header{
+    margin-bottom:30px;
+}
+
+.login-header h2{
+    font-size:2rem;
+    color:#1e293b;
+    margin-bottom:8px;
+}
+
+.login-header p{
+    color:#64748b;
+    font-size:.95rem;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.form-options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.remember-me{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#64748b;
+    cursor:pointer;
+}
+
+.submit-btn{
+    height:52px !important;
+    border-radius:12px !important;
+}
+
+.MuiOutlinedInput-root{
+    border-radius:12px !important;
+}
+
+.MuiIconButton-root{
+    color:#64748b !important;
+}
+
+.MuiIconButton-root:hover{
+    background:
+        rgba(33,46,160,.08) !important;
+}
+
+.status-button p {
+    color: red;
+    padding: 10px;
+}
+
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .login-sidebar{
+        display:none;
+    }
+
+    .login-form-wrapper{
+        padding:20px;
+    }
+}
+
+@media(max-width:480px){
+
+    .login-card{
+        padding:28px 20px;
+        box-shadow:none;
+        background:transparent;
+    }
+
+    .login-container{
+        background:white;
+    }
+}

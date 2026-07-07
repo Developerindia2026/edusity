@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -9,6 +9,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function App() {
+  const location = useLocation();
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -20,9 +22,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {<Navbar />}
       <AppRoutes />
-      <Footer/>
+      {<footer />}
     </>
   );
 }

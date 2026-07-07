@@ -11,7 +11,7 @@ function Navbar() {
   const isUnderDevelopment =
   location.pathname === "/UnderDevelopment" ||
   location.pathname === "/Career" ||
-  location.pathname === "/career/admin/dashboard";
+  location.pathname === "/admin";
 
   const [navDark, setNavDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -67,7 +67,7 @@ function Navbar() {
 
         {/* Desktop Contact Button */}
         <div className="contact-btn">
-          <Link to="/career/admin/dashboard">
+          <Link to="/admin">
             <button>Admin Panel</button>
           </Link>
         </div>
@@ -119,7 +119,7 @@ function Navbar() {
         </ul>
 
         <Link
-          to="/career/admin/dashboard"
+          to="/admin"
           className="mobile-contact-btn"
           onClick={() => setMenuOpen(false)}
         >

@@ -10,7 +10,7 @@ function AdminData() {
     const fetchApplications = async () => {
       try {
         const response = await axios.get(
-          `${API_URL}/career/admin/dashboard`,
+          `${API_URL}/admin`,
         );
 
         setApplications(response.data.applications);
@@ -25,7 +25,7 @@ function AdminData() {
   const HandleDelete = async (id) => {
     try {
       let Delresponse = await axios.delete(
-        `${API_URL}/career/admin/delete/${id}`,
+        `${API_URL}/admin/delete/${id}`,
       );
 
       setApplications(applications.filter((app) => app._id != id));
