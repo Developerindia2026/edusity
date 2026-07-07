@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import InputAdornment from "@mui/material/InputAdornment";
 import MailOutlineIcon from "@mui/icons-material/Mail";
 import LockOutlinedIcon from "@mui/icons-material/Lock";
-
+import CircularProgress from "@mui/material/CircularProgress";
 import "./LoginPage.css";
 import axios from "axios";
 import { API_URL } from "../../../Config/api";
@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+  const [Loading, setLoading] = useState(false);
   const [credentials, setCredentials] = useState(true);
   const navigate = useNavigate();
 
@@ -37,6 +38,7 @@ function LoginPage() {
     event.preventDefault();
 
     try {
+      setLoading(true);
       setCredentials(true);
 
       const response = await axios.post(`${API_URL}/admin/login`, formData);
@@ -47,7 +49,9 @@ function LoginPage() {
     } catch (error) {
       console.log(error);
       setCredentials(false);
-    } 
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -127,15 +131,14 @@ function LoginPage() {
             </div>
 
             <div className="status-button">
-              <p>
-                {credentials ? "" : "Please Check the Login Credentials"}
-              </p>
+              <p>{credentials ? "" : "Please Check the Login Credentials"}</p>
             </div>
 
             <Button
               type="submit"
               variant="contained"
               fullWidth
+              disabled={Loading}
               className="submit-btn"
               sx={{
                 background: "linear-gradient(135deg, #212ea0 0%, #172070 100%)",
@@ -153,7 +156,11 @@ function LoginPage() {
                 },
               }}
             >
-              Sign In
+              {Loading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                "Sign In"
+              )}
             </Button>
           </form>
         </div>
