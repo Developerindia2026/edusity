@@ -12,14 +12,16 @@ function Navbar() {
   const isUnderDevelopment =
   location.pathname === "/UnderDevelopment" ||
   location.pathname === "/Career" ||
-  location.pathname === "/admin";
+  location.pathname === "/admin" ||
+  location.pathname === "/programs"
+  // location.pathname === "/about";
 
   const [navDark, setNavDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setNavDark(window.scrollY > 50);
+      setNavDark(window.scrollY > 70);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,11 +51,11 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to="/UnderDevelopment">Programs</Link>
+              <Link to="/programs">Programs</Link>
             </li>
 
             <li>
-              <a href="#about">About Us</a>
+              <Link to="/about">About Us</Link>
             </li>
 
             <li>
@@ -95,13 +97,13 @@ function Navbar() {
           </li>
 
           <li>
-            <Link to="/UnderDevelopment" onClick={() => setMenuOpen(false)}>
+            <Link to="/programs" onClick={() => setMenuOpen(false)}>
               Programs
             </Link>
           </li>
 
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>
               About Us
             </Link>
           </li>

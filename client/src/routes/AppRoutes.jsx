@@ -5,15 +5,21 @@ import UnderDevelopment from "../pages/UnderDevelopment/UnderDevelopment";
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import ProtectedRoute from "./ProtectedRoute";
 import LoginAdmin from "../pages/AdminPanel/Login";
+import AboutUs from "../components/AboutPage/AboutUs";
+import UnknowPage from "../pages/404Page/404Page";
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
 
-      <Route path="/UnderDevelopment" element={<UnderDevelopment />} />
-
       <Route path="/career" element={<Career />} />
+
+      <Route path="/programs" element={<UnderDevelopment/>} />
+
+      <Route path="/about" element={<AboutUs />} />
+
+      <Route path="*" element={<UnknowPage/>}/>
 
       <Route
         path="/admin"
@@ -24,7 +30,7 @@ function AppRoutes() {
         }
       />
 
-      <Route path="/admin/login" element={<LoginAdmin/>}/>
+      <Route path="/admin/login" element={<LoginAdmin />} />
     </Routes>
   );
 }

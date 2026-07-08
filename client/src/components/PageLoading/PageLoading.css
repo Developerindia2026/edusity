@@ -1,97 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* =========================
+   Full Screen
+========================= */
 
+.page-loading{
+    position:fixed;
+    inset:0;
 
-/* ===========================
-   Full Screen Loading Overlay
-=========================== */
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-.Page-loading {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
+    background:#ffffff;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: #ffffff;
-
-    z-index: 9999;
+    z-index:99999;
 }
 
-/* ===========================
-   Loader
-=========================== */
+/* =========================
+   Content
+========================= */
+
+.loader-wrapper{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:28px;
+}
+
+.loader{
+
+    position:relative;
+}
+
+/* =========================
+   Heading
+========================= */
+
+.loader-wrapper h2{
+
+    margin:0;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    letter-spacing:8px;
+
+    color:#0f172a;
+}
+
+/* =========================
+   Subtitle
+========================= */
+
+.loader-wrapper p{
+
+    margin-top:-12px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    font-family:"Outfit",sans-serif;
+}
 
 .loader {
-    --color-1: #d3dee4;
-    --color-2: #080e3c;
-    --size: 1px;
+  --color-1:#2563eb;
+--color-2:#0f172a;
+  --size: 1px;
 
-    font-size: calc(48 * var(--size));
-    display: inline-block;
-    position: relative;
-
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-
-    color: var(--color-1);
-    letter-spacing: calc(2 * var(--size));
-
-    text-shadow:
-        0 0 calc(2 * var(--size)) var(--color-2),
-        0 0 calc(1 * var(--size)) var(--color-2),
-        0 0 calc(1 * var(--size)) var(--color-2);
+  transform: rotateZ(45deg);
+  perspective: calc(1000 * var(--size));
+  border-radius: 50%;
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  color: var(--color-1);
+}
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+.loader:after {
+  color: var(--color-2);
+  transform: rotateY(70deg);
+  animation-delay: 0.4s;
 }
 
-.loader::before,
-.loader::after {
-    content: "EDUSITY";
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
 }
 
-.loader::after {
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    color: var(--color-2);
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    animation: animloader 1s linear infinite;
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }
 
-/* ===========================
-   Animation
-=========================== */
-
-@keyframes animloader {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-/* ===========================
-   Responsive
-=========================== */
-
-@media (max-width: 768px) {
-    .loader {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 480px) {
-    .loader {
-        font-size: 28px;
-    }
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: 0.2em 0 0 0 currentcolor;
+  }
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 0.2em 0 0 currentcolor;
+  }
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0 -0.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
 }
